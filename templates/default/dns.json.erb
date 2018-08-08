@@ -1,0 +1,19 @@
+{
+  "Comment": "Opsworks auotmated",
+  "Changes": [
+    {
+      "Action": "UPSERT",
+      "ResourceRecordSet": {
+        "Name": "<%= node['opsworks']['instance']['hostname'] %>.<%= node['opsworks']['stack']['name'] %>.<%= node['domain_name'] %>",
+        "Type": "A",
+        "TTL": 300,
+        "ResourceRecords": [
+          {
+            "Value": "<%= node['opsworks']['instance']['private_ip'] %>"
+          }
+        ]
+      }
+    }
+  ]
+}
+
